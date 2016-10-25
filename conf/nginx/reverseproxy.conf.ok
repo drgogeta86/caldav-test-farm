@@ -1,0 +1,76 @@
+server {
+        listen 80 ;
+        #ssl_certificate /etc/ssl/www.crt;
+        #//ssl_certificate_key /etc/ssl/www.key;
+        add_header Strict-Transport-Security max-age=15768000; # six months
+        #//ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        #//ssl_ciphers 'EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ECDSA:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA';
+        server_name 9.1.tstsrv.in.merproject.org;
+        location / {
+                proxy_pass http://owncloud_9.1;
+                proxy_set_header X-Forwarded-Host 9.1.tstsrv.in.merproject.org;
+                proxy_set_header X-Forwarded-Proto http;
+                proxy_set_header X-Forwarded-For $remote_addr;
+        }
+}
+server {
+        listen 80 ;
+        #ssl_certificate /etc/ssl/www.crt;
+        #//ssl_certificate_key /etc/ssl/www.key;
+        add_header Strict-Transport-Security max-age=15768000; # six months
+        #//ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        #//ssl_ciphers 'EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ECDSA:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA';
+        server_name 9.0.tstsrv.in.merproject.org;
+        location / {
+                proxy_pass http://owncloud_9.0;
+                proxy_set_header X-Forwarded-Host 9.0.tstsrv.in.merproject.org;
+                proxy_set_header X-Forwarded-Proto http;
+                proxy_set_header X-Forwarded-For $remote_addr;
+        }
+}
+server {
+        listen 80 ;
+        #ssl_certificate /etc/ssl/www.crt;
+        #//ssl_certificate_key /etc/ssl/www.key;
+        add_header Strict-Transport-Security max-age=15768000; # six months
+        #//ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        #//ssl_ciphers 'EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ECDSA:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA';
+        server_name 8.2.tstsrv.in.merproject.org;
+        location / {
+                proxy_pass http://owncloud_8.2;
+                proxy_set_header X-Forwarded-Host 8.2.tstsrv.in.merproject.org;
+                proxy_set_header X-Forwarded-Proto http;
+                proxy_set_header X-Forwarded-For $remote_addr;
+        }
+}
+server {
+        listen 80 ;
+        #ssl_certificate /etc/ssl/www.crt;
+        #//ssl_certificate_key /etc/ssl/www.key;
+        add_header Strict-Transport-Security max-age=15768000; # six months
+        #//ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        #//ssl_ciphers 'EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ECDSA:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA';
+        server_name 8.1.tstsrv.in.merproject.org;
+        location / {
+                proxy_pass http://owncloud_8.1;
+                proxy_set_header X-Forwarded-Host 8.1.tstsrv.in.merproject.org;
+                proxy_set_header X-Forwarded-Proto http;
+                proxy_set_header X-Forwarded-For $remote_addr;
+        }
+}
+server {
+        listen 80 ;
+        #ssl_certificate /etc/ssl/www.crt;
+        #//ssl_certificate_key /etc/ssl/www.key;
+        add_header Strict-Transport-Security max-age=15768000; # six months
+        #//ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        #//ssl_ciphers 'EDH+CAMELLIA:EDH+aRSA:EECDH+aRSA+AESGCM:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH:+CAMELLIA256:+AES256:+CAMELLIA128:+AES128:+SSLv3:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ECDSA:CAMELLIA256-SHA:AES256-SHA:CAMELLIA128-SHA:AES128-SHA';
+        server_name 8.0.tstsrv.in.merproject.org;
+        location / {
+                proxy_pass http://owncloud_8.0;
+                proxy_set_header X-Forwarded-Host 8.0.tstsrv.in.merproject.org;
+                proxy_set_header X-Forwarded-Proto http;
+                proxy_set_header X-Forwarded-For $remote_addr;
+        }
+}
+

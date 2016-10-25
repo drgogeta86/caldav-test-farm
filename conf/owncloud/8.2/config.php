@@ -1,17 +1,15 @@
 <?php
 $CONFIG = array (
-  'instanceid' => 'oc3aaxzp9272',
-  'passwordsalt' => 'feqQRBjLUeTJnVijKPpUb/3YsdG7vg',
-  'secret' => 'HVM31gFxGfbQHRRCsRNkQQ8aFPgAnRtnHOUdfC6OAW/QyElI',
+  'passwordsalt' => 'jBdtkP/ZXHTR0Hu59y8dp3F307THb4',
+  'secret' => 'PGW4SQoMwJKovpvHURXEFfx/SYXhSa7AolK7pzpzPWbtDnyU',
   'trusted_domains' => 
   array (
-    0 => '8.2.tstsrv.in.merproject.org',
+    0 => 'localhost',
   ),
   'datadirectory' => '/var/www/html/data',
-  'overwrite.cli.url' => 'http://8.2.tstsrv.in.merproject.org',
+  'overwrite.cli.url' => 'http://localhost',
   'dbtype' => 'sqlite3',
   'version' => '8.2.8.2',
   'logtimezone' => 'UTC',
   'installed' => true,
 );
-
