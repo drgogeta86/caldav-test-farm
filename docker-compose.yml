@@ -25,25 +25,25 @@ services:
 
    owncloud_9.1:
     image: owncloud:9.1
-    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && php /var/www/html/occ config:system:set trusted_domains 0 --value=9.1.tstsrv.in.merproject.org "   && bash -x /usr/local/bin/apache2-foreground '   
+    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && php /var/www/html/occ config:system:set trusted_domains 0 --value=9.1.tstsrv.in.merproject.org "   && bash  /usr/local/bin/apache2-foreground '   
     ports:
     - 18091:80
 
    owncloud_9.0:
     image: owncloud:9.0
-    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && php /var/www/html/occ config:system:set trusted_domains 0 --value=9.0.tstsrv.in.merproject.org "   && bash -x /usr/local/bin/apache2-foreground '   
+    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && php /var/www/html/occ config:system:set trusted_domains 0 --value=9.0.tstsrv.in.merproject.org "   && bash  /usr/local/bin/apache2-foreground '   
     ports:
     - 18090:80
    
    owncloud_8.2:
     image: owncloud:8.2
-    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && php /var/www/html/occ config:system:set trusted_domains 0 --value=8.2.tstsrv.in.merproject.org "   && bash -x /usr/local/bin/apache2-foreground '   
+    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && sed -i  's/localhost/8.2.tstsrv.in.merproject.org/g' /var/www/html/config/config.php  "   && bash  /usr/local/bin/apache2-foreground '   
     ports:
     - 18082:80
 
    owncloud_8.1:
     image: owncloud:8.1
-    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && php /var/www/html/occ config:system:set trusted_domains 0 --value=8.1.tstsrv.in.merproject.org "   && bash -x /usr/local/bin/apache2-foreground '   
+    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && sed -i  's/localhost/8.1.tstsrv.in.merproject.org/g' /var/www/html/config/config.php  "   && bash  /usr/local/bin/apache2-foreground '   
     ports:
     - 18081:80
  
