@@ -23,40 +23,30 @@ version: '2'
 
 services:
 
-#  owncloud_9.1:
-#    image: owncloud:9.1
-#    volumes:
-#    - ./conf/owncloud/9.1/config.php:/var/www/html/config/config.php
-#   ports:
-#   - 18091:80
-
-#  owncloud_9.0:
-#    image: owncloud:9.0
-#    volumes:
-#    - ./conf/owncloud/9.0/config.php:/var/www/html/config/config.php
-#   ports:
-#   - 18090:80
-  
-#  owncloud_8.2:
-#    image: owncloud:8.2
-#    volumes:
-#    - ./conf/owncloud/8.2/config.php:/var/www/html/config/config.php
-#    ports:
-#      - 18082:80
- 
-#  owncloud_8.1:
-#    image: owncloud:8.1
-#    volumes:
-#    - ./conf/owncloud/8.1/config.php:/var/www/html/config/config.php
-#    ports:
-#      - 18081:80
-  
-  owncloud_8.0:
-    image: owncloud:8.0
-    #volumes:
-    #- ./conf/owncloud/8.1/config.php:/var/www/html/config/config.php
+   owncloud_9.1:
+    image: owncloud:9.1
+    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && php /var/www/html/occ config:system:set trusted_domains 0 --value=9.1.tstsrv.in.merproject.org "   && bash -x /usr/local/bin/apache2-foreground '   
     ports:
-      - 18080:80
+    - 18091:80
+
+   owncloud_9.0:
+    image: owncloud:9.0
+    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && php /var/www/html/occ config:system:set trusted_domains 0 --value=9.0.tstsrv.in.merproject.org "   && bash -x /usr/local/bin/apache2-foreground '   
+    ports:
+    - 18090:80
+   
+   owncloud_8.2:
+    image: owncloud:8.2
+    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && php /var/www/html/occ config:system:set trusted_domains 0 --value=8.2.tstsrv.in.merproject.org "   && bash -x /usr/local/bin/apache2-foreground '   
+    ports:
+    - 18082:80
+
+   owncloud_8.1:
+    image: owncloud:8.1
+    command: /bin/bash -c ' su -s /bin/bash  www-data -c "php /var/www/html/occ maintenance:install --database 'sqlite' --admin-user 'admin' --admin-pass 'merproject' && php /var/www/html/occ config:system:set trusted_domains 0 --value=8.1.tstsrv.in.merproject.org "   && bash -x /usr/local/bin/apache2-foreground '   
+    ports:
+    - 18081:80
+ 
   
 #  bedework:
 #    image: ioggstream/bedework
@@ -68,13 +58,18 @@ services:
 #    environment:
 #      MYSQL_ROOT_PASSWORD: merproject
 
-#   nginx:
-#    image: nginx
-#    volumes:
-#    - ./conf/nginx/reverseproxy.conf:/etc/nginx/conf.d/reverseproxy.conf
-#    ports:
-#    - "8080:80"
-#    environment:
-#    - NGINX_HOST=tstsrv.in.merproject.org
-#    - NGINX_PORT=80
-#    command: /bin/bash -c "nginx -g 'daemon off;'"
+   nginx:
+    image: nginx
+    volumes:
+    - ./conf/nginx/reverseproxy.conf:/etc/nginx/conf.d/reverseproxy.conf
+    ports:
+    - "8080:80"
+    environment:
+    - NGINX_HOST=tstsrv.in.merproject.org
+    - NGINX_PORT=80
+    command: /bin/bash -c "nginx -g 'daemon off;'"
+    depends_on:
+      - "owncloud_9.1"
+      - "owncloud_9.0"
+      - "owncloud_8.2"
+      - "owncloud_8.1"
