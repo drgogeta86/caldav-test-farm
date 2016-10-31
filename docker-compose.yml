@@ -47,7 +47,15 @@ services:
     ports:
     - 18081:80
  
-  
+# cozy..io
+
+   cozy:
+    image: cozy/full
+    environment:
+     - DISABLE_SSL=true
+    ports:
+     - 18180:80
+
 #  bedework:
 #    image: ioggstream/bedework
 #    ports:
@@ -73,3 +81,4 @@ services:
       - "owncloud_9.0"
       - "owncloud_8.2"
       - "owncloud_8.1"
+      - "cozy"
